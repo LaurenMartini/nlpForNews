@@ -8,7 +8,10 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-console.log(checkForName);
+//event listener to check that page is loaded
+window.addEventListener('DOMContentLoaded', (event)=> {
+    console.log('DOM fully loaded and parsed');
 
-alert("I EXIST")
-console.log("CHANGE!!");
+    //submit event listener added to form
+    document.querySelector('form').addEventListener('submit', handleSubmit);
+})
