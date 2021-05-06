@@ -14,6 +14,7 @@ app.use(express.static('dist'));
 console.log(__dirname);
 
 app.get('/', function (req, res) {
+    console.log('get / called');
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
 });
@@ -24,5 +25,6 @@ app.listen(8080, function () {
 });
 
 app.get('/test', function (req, res) {
+    console.log('get /test called');
     res.send(mockAPIResponse)
 });

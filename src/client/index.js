@@ -14,4 +14,9 @@ window.addEventListener('DOMContentLoaded', (event)=> {
 
     //submit event listener added to form
     document.querySelector('form').addEventListener('submit', handleSubmit);
-})
+});
+
+export {
+    checkForName,
+    handleSubmit
+}
