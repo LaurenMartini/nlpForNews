@@ -1,7 +1,21 @@
+$lightColor: #fffae3;
+$darkColor: #292205;
+$mainFont: 'Playfair Display', serif;
+$headerFontSize: 40px;
+$bodyFontSize: 20px;
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: $mainFont;
+    background-color: $lightColor;
+    color: $darkColor;
+}
+
+input {
+    font-family: $mainFont;
+    color: $darkColor;
 }
 
 main {
@@ -11,4 +25,12 @@ main {
 section {
     max-width: 800px;
     margin: 50px auto;
+}
+
+footer{
+    background-color: $darkColor;
+}
+
+a {
+    color: $lightColor;
 }
