@@ -20,7 +20,7 @@ const getSentimentAnalysis = async(url, userURL) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userURL)
+        body: JSON.stringify({userURL})
     });
     try {
         console.log('in try');

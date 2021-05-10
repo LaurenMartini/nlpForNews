@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 dotenv.config();
 const mockAPIResponse = require('./mockAPI.js');
@@ -24,6 +25,12 @@ const getSentimentAnalysis = async(userURL) => {
 
 const app = express();
 app.use(cors());
+// to use json
+app.use(bodyParser.json())
+// to use url encoded values
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 app.use(express.static('dist'));
 
@@ -45,5 +52,5 @@ app.listen(8081, function () {
 // });
 
 app.post('http://localhost:8081/add', function(req, res) {
-    res.send(getSentimentAnalysis(userURL));
+    res.send(getSentimentAnalysis(req.body.userURL));
 });
