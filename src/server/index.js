@@ -51,6 +51,6 @@ app.listen(8081, function () {
 //     res.send(mockAPIResponse)
 // });
 
-app.post('http://localhost:8081/add', function(req, res) {
-    res.send(getSentimentAnalysis(req.body.userURL));
+app.post('/add', async function(req, res) {
+    res.send(await getSentimentAnalysis(req.body.userURL));
 });
