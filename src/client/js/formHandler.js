@@ -6,7 +6,7 @@ function handleSubmit(event) {
     Client.checkForName(formText)
 
     console.log("::: Form Submitted :::")
-    getSentimentAnalysis('/add', formText).then(function(data) {
+    getSentimentAnalysis('http://localhost:8081/add', formText).then(function(data) {
         console.log('after sentiment analysis requested');
         document.getElementById('results').innerHTML = data.agreement;
     });

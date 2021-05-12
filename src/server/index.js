@@ -11,6 +11,15 @@ const { allowedNodeEnvironmentFlags } = require('process');
 const API_KEY = process.env.API_KEY;
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 
+const app = express();
+app.use(cors());
+// to use json
+app.use(bodyParser.json())
+// to use url encoded values
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
 //helper function for fetching data
 const getSentimentAnalysis = async(userURL) => {
     const res = await fetch(`${baseURL}?key=${API_KEY}&lang=en&url=${userURL}`);
@@ -22,15 +31,6 @@ const getSentimentAnalysis = async(userURL) => {
         console.log('error', error);
     }
 }
-
-const app = express();
-app.use(cors());
-// to use json
-app.use(bodyParser.json())
-// to use url encoded values
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
 
 app.use(express.static('dist'));
 
@@ -51,6 +51,6 @@ app.listen(8081, function () {
 //     res.send(mockAPIResponse)
 // });
 
-app.post('/add', async function(req, res) {
+app.post('http://localhost:8081/add', async function(req, res) {
     res.send(await getSentimentAnalysis(req.body.userURL));
 });
