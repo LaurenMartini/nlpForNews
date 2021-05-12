@@ -6,7 +6,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 dotenv.config();
-const mockAPIResponse = require('./mockAPI.js');
 const { allowedNodeEnvironmentFlags } = require('process');
 const API_KEY = process.env.API_KEY;
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
@@ -45,11 +44,6 @@ app.get('/', function (req, res) {
 app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 });
-
-// app.get('/test', function (req, res) {
-//     console.log('get /test called');
-//     res.send(mockAPIResponse)
-// });
 
 app.post('http://localhost:8081/add', async function(req, res) {
     res.send(await getSentimentAnalysis(req.body.userURL));

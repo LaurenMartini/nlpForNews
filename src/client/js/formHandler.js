@@ -3,13 +3,13 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    Client.checkForName(formText)
-
-    console.log("::: Form Submitted :::")
-    getSentimentAnalysis('http://localhost:8081/add', formText).then(function(data) {
-        console.log('after sentiment analysis requested');
-        document.getElementById('results').innerHTML = data.agreement;
-    });
+    if (Client.checkForName(formText)) {
+        console.log("::: Form Submitted :::")
+        getSentimentAnalysis('http://localhost:8081/add', formText).then(function(data) {
+            console.log('after sentiment analysis requested');
+            document.getElementById('results').innerHTML = data.agreement;
+        });
+    }
 }
 
 const getSentimentAnalysis = async(url, userURL) => {
