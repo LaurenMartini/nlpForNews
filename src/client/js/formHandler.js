@@ -5,9 +5,13 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
     if (Client.checkForName(formText)) {
         console.log("::: Form Submitted :::")
-        getSentimentAnalysis('http://localhost:8081/add', formText).then(function(data) {
+        getSentimentAnalysis('/add', formText).then(function(data) {
             console.log('after sentiment analysis requested');
-            document.getElementById('results').innerHTML = data.agreement;
+            document.getElementById('subjectivity').innerHTML = data.subjectivity;
+            document.getElementById('agreement').innerHTML = data.agreement;
+            document.getElementById('confidence').innerHTML = data.confidence;
+            document.getElementById('irony').innerHTML = data.irony;
+            document.getElementById('score_tag').innerHTML = data.score_tag;
         });
     }
 }

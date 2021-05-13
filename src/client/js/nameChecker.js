@@ -1,16 +1,5 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    // let names = [
-    //     "Picard",
-    //     "Janeway",
-    //     "Kirk",
-    //     "Archer",
-    //     "Georgiou"
-    // ]
-
-    // if(names.includes(inputText)) {
-    //     alert("Welcome, Captain!")
-    // }
     //check that url is valid
     //CREDIT FOR REGEX: https://stackoverflow.com/questions/1701898/how-to-detect-whether-a-string-is-in-url-format-using-javascript
     const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
